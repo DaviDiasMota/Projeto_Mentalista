@@ -1,0 +1,248 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap');
+
+*{
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+    font-family: "Inter", sans-serif;
+}
+
+:root{
+    --preto:#191818;
+    --branco:#FFFFFF;
+}
+
+.container{
+    z-index: 0;
+    background-color: var(--preto);
+    display: flex;
+    flex-direction: column;
+}
+
+header{
+    margin-top: 20px;
+    width: 100%;
+    height: 10vh;
+    position: relative;
+    display: flex;
+    justify-content: center;
+    overflow: hidden;
+}
+
+header img{ 
+    height: 100%;
+    object-fit: cover;
+}
+
+.home{
+    display: flex;
+    flex-direction: column;
+    min-height: 90vh;
+}
+
+.caixa-texto{
+    display: flex;
+    flex-direction: column;
+    gap: 49px;
+}
+
+.title{
+    margin-top: 30px;
+    margin-left: 52px;
+    font-size: 28px;
+    color: #FFFFFF;
+    font-weight: 700;
+    font-style: italic;
+}
+
+.text{
+    font-size: 24px;
+    color: #FFFFFF;
+}
+
+#text1{
+    margin-left: 51px;
+    width: 254px;
+}
+
+.negrito{
+    font-weight: 700;
+    font-style: italic;
+}
+
+.img-mentalista{
+    z-index: 0;
+    align-self: flex-end;
+    height: 559px;
+    width: 100%;
+    position: relative;
+    bottom: 135px;
+}
+
+.mentalista{
+    height: 100%;
+    width: 100%;
+
+}
+
+.teste{
+    min-height: 100vh;
+}
+
+.caixa-texto2{
+    display: flex;
+    flex-direction: column;
+    gap: 18px;
+}
+
+.title2{
+    font-size: 28px;
+    color: #FFFFFF;
+    font-weight: 400;
+    font-style: italic;
+    width: 268px;
+    margin-left: 58px;
+}
+
+#text2{
+    width: 254px;
+    margin-left: 58px;
+}
+
+.img-red{
+    max-width: 503px;
+    max-height: 651px;
+}
+
+.img-red img{
+    max-width: 100%;
+    max-height: 100%;
+}
+
+.teste > .resto > form{
+    background-color: #191818;
+    display: flex;
+    justify-content: center;
+    padding-bottom: 50px;
+}
+
+.teste > .resto > form > a>  button{
+    width: 221px;
+    height: 61px;
+    color: #191818;
+    background-color: #FFFFFF;
+    font-weight: 600;
+    font-size: 24px;
+    outline: none;
+    border: none;
+    transition: 0.3s ease-in-out;
+}
+
+.teste > .resto > form > a > button:hover{
+    transform: translateY(-4px);
+    cursor: pointer;
+    box-shadow: 10px 10px rgb(206, 206, 206);
+}
+
+@media (min-width: 768px) {
+    header{
+        justify-content: flex-end;
+        padding-right: 20px;
+    }
+
+    .home{
+        display: flex;
+        min-height: 90vh;
+        flex-direction: row;
+        justify-content: space-between;
+    }
+    
+
+    .title{
+        font-size: 120px;
+        width: 732px;
+        border-left: 3px solid white;
+        padding-left: 49px;
+    }
+
+    .text{
+        font-size: 40px;
+    }
+
+    #text1{
+        width: 747px;
+    }
+
+    .img-mentalista{
+        width: 575px;
+        height: 744px;
+        justify-content: flex-end;
+        align-items: flex-end;
+    }
+
+    .mentalista{
+        align-self: flex-end;
+        justify-self: flex-end;
+    }
+
+    .teste{
+        overflow: hidden;
+        height: 100vh;
+        display: flex;
+        flex-direction: row;
+        flex-wrap: wrap;
+        justify-content: space-between;
+    }
+
+    .caixa-texto2{
+        display: flex;
+        flex-direction: column;
+        gap: 93px;
+        
+    }
+
+    .title2{
+        font-size: 100px;
+        width: 1000px;
+        border-left: 3px solid white;
+        padding-left: 49px;
+    }
+
+    #text2{
+        width: 759px;
+    }
+
+    .resto{
+        display: flex;
+        flex-direction: row-reverse;
+        justify-content: space-between;
+        align-items: flex-start;
+        width: 100%;
+    }
+
+    .img-red{
+        position: relative;
+        bottom: 350px;
+
+        height: 1098px;
+        width: 849px;
+    }
+
+    .img-red img{
+        position: absolute;
+        height: 100%;
+        width: 100%;
+    }
+
+    .teste > .resto > form > a > button{
+        font-size: 40px;
+        font-weight: 600;
+        font-style: italic;
+        height: 86px;
+        width: 400px;
+        margin-left: 49px;
+        margin-top: 49px;
+    }
+
+
+}
