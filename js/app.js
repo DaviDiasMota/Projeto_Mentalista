@@ -2,29 +2,77 @@ let contadorPerguntas = 1
 let contadorSim = 0
 let contadorNao = 0
 
+function proximaPergunta() {
+    if (contadorPerguntas > 10) {
+        mostrarResultado()
+    } else {
+        const numFormatado = contadorPerguntas < 10 ? `0${contadorPerguntas}` : contadorPerguntas
+        const nomeFuncao = `pergunta${numFormatado}`
+        
+        if (typeof window[nomeFuncao] === "function") {
+            window[nomeFuncao]()
+        }
+    }
+}
+
 const botaoSim = document.getElementById('sim')
 botaoSim.onclick = () => {
     contadorSim += 1
     contadorPerguntas += 1
-    window[`pergunta0${contadorPerguntas}`]()
+    proximaPergunta()
 }
 
 const botaoNao = document.getElementById('nao')
 botaoNao.onclick = () => {
     contadorNao += 1
     contadorPerguntas += 1
-    window[`pergunta0${contadorPerguntas}`]()
+    proximaPergunta()
 }
 
-
-function mostrarResultado(){
+function mostrarResultado() {
+    const header = document.getElementById("header")
     const container = document.getElementById("container")
-    container.replaceChildren()
+    container.replaceChildren(header)
+
+
+    const caixaTitulo = document.createElement("div")
+    caixaTitulo.className = "titulo"
+    const caixaDados = document.createElement("div")
+    caixaDados.className = "dados"
+    const caixaTexto = document.createElement("div")
+    caixaTexto.className = "caixa-texto"
 
     const titulo = document.createElement('h1')
-    titulo.textContent("ANÁLISE DOS DADOS")
+    titulo.className = "analise"
+    titulo.textContent = "ANÁLISE DOS DADOS" 
 
-    
+    const dadosSim = document.createElement("h2")
+    dadosSim.id = "yes"
+    dadosSim.textContent = contadorSim < 10 ? `0${contadorSim} SIM` : `${contadorSim} SIM`
+
+    const dadosNao = document.createElement("h2")
+    dadosNao.textContent = contadorNao < 10 ? `0${contadorNao} NÃO` : `${contadorNao} NÃO` 
+
+    const resultado = document.createElement("span")
+    resultado.className = "resultado"
+
+    if (contadorSim < 5) {
+        resultado.textContent = "INOCENTE"
+    } else if (contadorSim === 5) {
+        resultado.textContent = "SUSPEITO"
+    } else if (contadorSim >= 6 && contadorSim <= 8) {
+        resultado.textContent = "CÚMPLICE"
+    } else if (contadorSim > 8) {
+        resultado.textContent = "CULPADO"
+    }
+
+    const texto = document.createElement("p")
+    texto.textContent = " Depois de avaliar o seu teste chegamos à conclusão de que você é:"
+
+    caixaTitulo.append(titulo)
+    caixaDados.append(dadosSim, dadosNao)
+    caixaTexto.append(texto, resultado)
+    container.append(caixaTitulo, caixaDados, caixaTexto)
 }
 
 function pergunta01() {
@@ -198,7 +246,7 @@ function pergunta09() {
     caixaTexto.append(texto)
 }
 
-function pergunta010() {
+function pergunta10() {
     const caixaTitulo = document.getElementById('titulo')
     const caixaTexto = document.getElementById('texto')
     
@@ -217,8 +265,5 @@ function pergunta010() {
     caixaTexto.append(texto)
 }
 
-if (contadorPerguntas > 10){
-    mostrarResultado()
-}
 
 pergunta01()
